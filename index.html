@@ -1,935 +1,655 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>福州 · 古田 · 湄洲島 6天5夜孝親朝聖之旅</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        fuzhou: {
-                            50: '#fdf3f2',
-                            100: '#fbe4e2',
-                            200: '#f7cdca',
-                            500: '#d94136',
-                            600: '#b82c22',
-                            800: '#83211b',
-                            900: '#521410',
-                        },
-                        amberGold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Noto Serif TC"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #f8fafc;
-            color: #1e293b;
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-        .custom-shadow {
-            box-shadow: 0 10px 25px -5px rgba(184, 44, 34, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-        }
-        .gradient-header {
-            background: linear-gradient(135deg, #83211b 0%, #b82c22 60%, #d94136 100%);
-        }
-        .active-tab {
-            background-color: #b82c22 !important;
-            color: #ffffff !important;
-            box-shadow: 0 4px 12px rgba(184, 44, 34, 0.3);
-        }
-        .spot-badge {
-            transition: all 0.2s ease;
-        }
-        .spot-badge:hover {
-            transform: translateY(-2px);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>福州 · 古田 · 湄洲島 6天5夜朝聖之旅</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #fcf8f2;
+    }
+    .active-tab {
+      background-color: #991b1b;
+      color: #ffffff;
+      box-shadow: 0 4px 6px -1px rgba(153, 27, 27, 0.3);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out;
+    }
+    .accordion-content.open {
+      max-height: 1200px;
+    }
+  </style>
 </head>
-<body class="pb-12 min-h-screen">
+<body class="pb-12 text-slate-800">
 
-    <!-- Top Navigation / Header -->
-    <header class="gradient-header text-white sticky top-0 z-30 shadow-lg">
-        <div class="max-w-4xl mx-auto px-4 py-4 md:py-6">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                <div>
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="bg-amberGold-500 text-stone-900 text-xs font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1">
-                            <i class="fa-solid fa-heart text-[10px]"></i> 2026 孝親朝聖之旅
-                        </span>
-                        <span class="text-xs text-rose-100/80">2026/10/30 ~ 11/04</span>
-                    </div>
-                    <h1 class="text-2xl md:text-3xl font-bold font-serif tracking-tight text-amber-100 flex items-center gap-2">
-                        福州 · 古田 · 湄洲島 6天5夜
-                    </h1>
-                </div>
-                <!-- Accommodation Quick Badges -->
-                <div class="flex flex-col sm:flex-row gap-2 text-xs">
-                    <div class="bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15 flex items-center gap-2">
-                        <i class="fa-solid fa-hotel text-amber-300"></i>
-                        <div>
-                            <span class="text-rose-200 block text-[10px] leading-none">10/30 - 11/03 (4晚)</span>
-                            <span class="font-medium text-white truncate max-w-[180px] inline-block">東街口地鐵站亞朵飯店</span>
-                        </div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15 flex items-center gap-2">
-                        <i class="fa-solid fa-plane-departure text-amber-300"></i>
-                        <div>
-                            <span class="text-rose-200 block text-[10px] leading-none">11/03 - 11/04 (1晚)</span>
-                            <span class="font-medium text-white truncate max-w-[180px] inline-block">長樂機場海港城亞朵飯店</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Header -->
+  <header class="bg-red-800 text-white shadow-md sticky top-0 z-50 border-b-2 border-amber-500">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+      <div class="text-center md:text-left mb-2 md:mb-0">
+        <span class="bg-amber-500 text-red-950 text-xs px-3 py-1 rounded-full font-bold tracking-wider">2026 朝聖之旅</span>
+        <h1 class="text-xl md:text-2xl font-bold mt-1 text-amber-100">福州 · 古田 · 湄洲島 6天5夜朝聖之旅</h1>
+      </div>
+      <div class="text-xs text-amber-200 bg-red-900/80 px-3.5 py-1.5 rounded-lg border border-amber-500/40 font-medium">
+        <i class="fa-solid fa-calendar-days mr-1.5 text-amber-400"></i>2026/10/30 (五) ~ 11/04 (三)
+      </div>
+    </div>
+  </header>
+
+  <!-- Accommodation Banner -->
+  <section class="max-w-4xl mx-auto px-4 mt-4">
+    <div class="bg-white rounded-xl p-4 shadow-sm border border-amber-200 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+      <div class="flex items-center space-x-3 text-slate-700">
+        <div class="w-10 h-10 rounded-lg bg-red-50 text-red-700 flex items-center justify-center font-bold shrink-0 border border-red-200">
+          <i class="fa-solid fa-hotel text-lg"></i>
         </div>
-    </header>
-
-    <main class="max-w-4xl mx-auto px-4 mt-4">
-
-        <!-- Search & Category Filters -->
-        <div class="bg-white rounded-2xl p-3 shadow-sm border border-slate-200/80 mb-4 flex flex-col sm:flex-row gap-2 items-center justify-between">
-            <div class="relative w-full sm:w-64">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="searchInput" onkeyup="filterItems()" placeholder="搜尋景點、美食或注意事項..." class="w-full pl-9 pr-3 py-1.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-fuzhou-500">
-            </div>
-            <div class="flex gap-1.5 overflow-x-auto w-full sm:w-auto hide-scrollbar py-1">
-                <button onclick="setFilter('all')" class="filter-btn active text-xs px-3 py-1.5 rounded-lg border border-slate-200 bg-fuzhou-600 text-white font-medium whitespace-nowrap">全部</button>
-                <button onclick="setFilter('spot')" class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-100 text-slate-600 font-medium whitespace-nowrap hover:bg-slate-200"><i class="fa-solid fa-torii-gate text-fuzhou-500 mr-1"></i>景點</button>
-                <button onclick="setFilter('food')" class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-100 text-slate-600 font-medium whitespace-nowrap hover:bg-slate-200"><i class="fa-solid fa-utensils text-amber-500 mr-1"></i>美食</button>
-                <button onclick="setFilter('transport')" class="filter-btn text-xs px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-100 text-slate-600 font-medium whitespace-nowrap hover:bg-slate-200"><i class="fa-solid fa-car text-blue-500 mr-1"></i>交通</button>
-            </div>
+        <div>
+          <div class="text-xs text-slate-500 font-medium">前4晚住宿 (10/30-11/03)</div>
+          <div class="font-bold text-slate-900">福州三坊七巷東街口地鐵站亞朵飯店</div>
         </div>
-
-        <!-- Day Selector Tabs -->
-        <div class="flex space-x-2 overflow-x-auto hide-scrollbar pb-2 mb-4">
-            <button onclick="switchDay(1)" id="tab-1" class="day-tab active-tab flex-1 min-w-[100px] py-2.5 px-3 rounded-xl bg-white text-slate-700 font-medium text-center border border-slate-200/80 transition-all">
-                <span class="block text-[10px] text-slate-400 uppercase tracking-wider">DAY 1</span>
-                <span class="font-bold text-sm">10/30 (五)</span>
-                <span class="block text-[11px] text-fuzhou-600 font-semibold mt-0.5">福州初探</span>
-            </button>
-            <button onclick="switchDay(2)" id="tab-2" class="day-tab flex-1 min-w-[100px] py-2.5 px-3 rounded-xl bg-white text-slate-700 font-medium text-center border border-slate-200/80 transition-all">
-                <span class="block text-[10px] text-slate-400 uppercase tracking-wider">DAY 2</span>
-                <span class="font-bold text-sm">10/31 (六)</span>
-                <span class="block text-[11px] opacity-80 mt-0.5">古田朝聖</span>
-            </button>
-            <button onclick="switchDay(3)" id="tab-3" class="day-tab flex-1 min-w-[100px] py-2.5 px-3 rounded-xl bg-white text-slate-700 font-medium text-center border border-slate-200/80 transition-all">
-                <span class="block text-[10px] text-slate-400 uppercase tracking-wider">DAY 3</span>
-                <span class="font-bold text-sm">11/01 (日)</span>
-                <span class="block text-[11px] opacity-80 mt-0.5">市區人文</span>
-            </button>
-            <button onclick="switchDay(4)" id="tab-4" class="day-tab flex-1 min-w-[100px] py-2.5 px-3 rounded-xl bg-white text-slate-700 font-medium text-center border border-slate-200/80 transition-all">
-                <span class="block text-[10px] text-slate-400 uppercase tracking-wider">DAY 4</span>
-                <span class="font-bold text-sm">11/02 (一)</span>
-                <span class="block text-[11px] opacity-80 mt-0.5">鼓山鼓嶺</span>
-            </button>
-            <button onclick="switchDay(5)" id="tab-5" class="day-tab flex-1 min-w-[100px] py-2.5 px-3 rounded-xl bg-white text-slate-700 font-medium text-center border border-slate-200/80 transition-all">
-                <span class="block text-[10px] text-slate-400 uppercase tracking-wider">DAY 5</span>
-                <span class="font-bold text-sm">11/03 (二)</span>
-                <span class="block text-[11px] opacity-80 mt-0.5">湄洲媽祖</span>
-            </button>
-            <button onclick="switchDay(6)" id="tab-6" class="day-tab flex-1 min-w-[100px] py-2.5 px-3 rounded-xl bg-white text-slate-700 font-medium text-center border border-slate-200/80 transition-all">
-                <span class="block text-[10px] text-slate-400 uppercase tracking-wider">DAY 6</span>
-                <span class="font-bold text-sm">11/04 (三)</span>
-                <span class="block text-[11px] opacity-80 mt-0.5">滿載平安</span>
-            </button>
+      </div>
+      <div class="flex items-center space-x-3 text-slate-700">
+        <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center font-bold shrink-0 border border-amber-200">
+          <i class="fa-solid fa-plane-departure text-lg"></i>
         </div>
-
-        <!-- DAY 1 CONTENT -->
-        <div id="day-1-content" class="day-content space-y-4">
-            <!-- Summary Banner -->
-            <div class="bg-gradient-to-r from-fuzhou-50 to-orange-50 border border-fuzhou-100 rounded-2xl p-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-fuzhou-800 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-plane-arrival text-fuzhou-600"></i> 第 1 天：抵達福州與古巷漫步
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-1">桃園班機抵達福州，辦理入住後品嚐福州古早味，漫步三坊七巷並準備隔日拜拜供品。</p>
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 bg-fuzhou-100 text-fuzhou-800 rounded-full whitespace-nowrap">步行約 6,000 步</span>
-            </div>
-
-            <!-- Schedule Items -->
-            <div class="space-y-3">
-                <!-- Item 1 -->
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">11:25 - 13:10</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">桃園機場 (TPE) $\rightarrow$ 福州長樂機場 (FOC)</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-ticket text-slate-400 mr-1"></i>請準備好台胞證，降落後辦理通關與提領行李。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">13:10 - 14:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">搭車前往市區飯店辦理入住</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-hotel text-slate-400 mr-1"></i>住宿：<b>福州三坊七巷東街口地鐵站亞朵飯店</b>（車程約 45 分鐘）。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">14:30 - 15:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">東街口與三坊七巷在地小吃巡禮</h4>
-                                <div class="flex flex-wrap gap-1.5 mt-2">
-                                    <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded border border-orange-200">叶家花生汤</span>
-                                    <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded border border-orange-200">同利肉燕</span>
-                                    <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded border border-orange-200">糖沫茶兮 (大紅袍/茉莉雪芽)</span>
-                                    <span class="text-xs bg-orange-50 text-orange-700 px-2 py-0.5 rounded border border-orange-200">到山家 (伴手禮)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">15:30 - 18:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">三坊七巷 / 名人故居 / 水榭戲台</h4>
-                                <p class="text-xs text-slate-500 mt-1">漫步明清古建築群，體會「半部中國近代史」之底蘊。</p>
-                                <button onclick="openModal('sanfang')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹與貼心提醒
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">18:00 - 18:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">採買隔天古田朝聖拜拜供品</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-basket-shopping text-slate-400 mr-1"></i>在東街口附近的連鎖水果店與花店採買新鮮水果與鮮花。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">18:30 - 20:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">晚餐：精選閩味晚餐</h4>
-                                <p class="text-xs text-slate-500 mt-1">推薦選項：<b>朱富貴火鍋</b>（海鮮極鮮，宜提早線上取號）、<b>寄海火鍋</b> 或 <b>四道菜福建菜館</b>。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div>
+          <div class="text-xs text-slate-500 font-medium">第5晚住宿 (11/03-11/04)</div>
+          <div class="font-bold text-slate-900">福州長樂機場海港城亞朵飯店</div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- DAY 2 CONTENT -->
-        <div id="day-2-content" class="day-content space-y-4 hidden">
-            <!-- Summary Banner -->
-            <div class="bg-gradient-to-r from-fuzhou-50 to-orange-50 border border-fuzhou-100 rounded-2xl p-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-fuzhou-800 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-place-of-worship text-fuzhou-600"></i> 第 2 天：古田臨水宮朝聖與翠屏湖
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-1">專車包車前往寧德古田，參訪順天聖母陳靖姑祖廟，午後欣賞翠屏湖秀麗風光。</p>
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 bg-fuzhou-100 text-fuzhou-800 rounded-full whitespace-nowrap">包車全程 2 小時</span>
-            </div>
+  <!-- Navigation Tabs -->
+  <nav class="max-w-4xl mx-auto px-4 my-6">
+    <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-none text-sm font-medium">
+      <button onclick="switchTab('prep')" id="tab-prep" class="active-tab px-4 py-2.5 rounded-xl shrink-0 transition-all flex items-center gap-1.5 font-bold">
+        <i class="fa-solid fa-clipboard-list text-amber-400"></i> 準備清單 / 注意事項
+      </button>
+      <button onclick="switchTab('day1')" id="tab-day1" class="bg-white text-slate-700 hover:bg-amber-50 px-4 py-2.5 rounded-xl shrink-0 transition-all border border-amber-200">
+        10/30 (五) Day 1
+      </button>
+      <button onclick="switchTab('day2')" id="tab-day2" class="bg-white text-slate-700 hover:bg-amber-50 px-4 py-2.5 rounded-xl shrink-0 transition-all border border-amber-200">
+        10/31 (六) Day 2
+      </button>
+      <button onclick="switchTab('day3')" id="tab-day3" class="bg-white text-slate-700 hover:bg-amber-50 px-4 py-2.5 rounded-xl shrink-0 transition-all border border-amber-200">
+        11/01 (日) Day 3
+      </button>
+      <button onclick="switchTab('day4')" id="tab-day4" class="bg-white text-slate-700 hover:bg-amber-50 px-4 py-2.5 rounded-xl shrink-0 transition-all border border-amber-200">
+        11/02 (一) Day 4
+      </button>
+      <button onclick="switchTab('day5')" id="tab-day5" class="bg-white text-slate-700 hover:bg-amber-50 px-4 py-2.5 rounded-xl shrink-0 transition-all border border-amber-200">
+        11/03 (二) Day 5
+      </button>
+      <button onclick="switchTab('day6')" id="tab-day6" class="bg-white text-slate-700 hover:bg-amber-50 px-4 py-2.5 rounded-xl shrink-0 transition-all border border-amber-200">
+        11/04 (三) Day 6
+      </button>
+    </div>
+  </nav>
 
-            <div class="space-y-3">
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">08:00 - 10:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">包車從飯店出發前往古田</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-car text-slate-400 mr-1"></i>車程約 2 小時，長輩可以在車上休息。備妥昨日採買的水果與鮮花。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <!-- Main Content Area -->
+  <main class="max-w-4xl mx-auto px-4">
 
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">10:00 - 12:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">參訪【古田臨水宮】（陳靖姑祖廟）</h4>
-                                <p class="text-xs text-slate-500 mt-1">臨水夫人祖廟參拜祈福，體驗肅穆香火與清代傳統建築雕刻藝術。</p>
-                                <button onclick="openModal('linshui')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">12:30 - 14:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">午餐：古田風味農家菜 / 翠屏湖鮮魚宴</h4>
-                                <p class="text-xs text-slate-500 mt-1">推薦品嚐：翠屏湖有機砂鍋魚頭湯、古田銀耳羹與在地農家小炒。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">14:00 - 15:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">翠屏湖景觀遊覽</h4>
-                                <p class="text-xs text-slate-500 mt-1">湖邊散步觀景或遊船，享受高負離子的湖光山色。</p>
-                                <button onclick="openModal('cuiping')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">15:00 - 17:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">乘車返回福州市區飯店</h4>
-                                <p class="text-xs text-slate-500 mt-1">包車回東街口亞朵飯店，讓爸媽在房內稍作休息再出門用餐。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">18:00 - 20:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">晚餐：朱富貴火鍋 / 寄海火鍋 / 四道菜</h4>
-                                <p class="text-xs text-slate-500 mt-1">可體驗首日尚未品嚐的特色美食，放鬆休息。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- PREP TAB -->
+    <div id="content-prep" class="tab-content space-y-6">
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200">
+        <h2 class="text-lg font-bold text-red-900 border-b border-amber-100 pb-3 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-suitcase text-amber-600"></i> 需攜帶物品清單
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <label class="flex items-center space-x-3 p-3 rounded-lg bg-red-50/50 border border-red-100 hover:bg-red-50 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-red-700 rounded focus:ring-red-500">
+            <span><strong>重要證件：</strong> 護照、台胞證 (正本，辦理登機與住宿登記)</span>
+          </label>
+          <label class="flex items-center space-x-3 p-3 rounded-lg bg-red-50/50 border border-red-100 hover:bg-red-50 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-red-700 rounded focus:ring-red-500">
+            <span><strong>電子通訊：</strong> 手機、行動電源、充電線與專用轉接頭</span>
+          </label>
+          <label class="flex items-center space-x-3 p-3 rounded-lg bg-red-50/50 border border-red-100 hover:bg-red-50 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-red-700 rounded focus:ring-red-500">
+            <span><strong>保健藥品：</strong> 個人常備用藥、慢性病藥品、胃藥、暈車藥</span>
+          </label>
+          <label class="flex items-center space-x-3 p-3 rounded-lg bg-red-50/50 border border-red-100 hover:bg-red-50 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-red-700 rounded focus:ring-red-500">
+            <span><strong>托運行李：</strong> 行李箱 * 1</span>
+          </label>
+          <label class="flex items-center space-x-3 p-3 rounded-lg bg-red-50/50 border border-red-100 hover:bg-red-50 cursor-pointer md:col-span-2">
+            <input type="checkbox" class="w-4 h-4 text-red-700 rounded focus:ring-red-500">
+            <span><strong>隨身行李：</strong> 手提行李 (旗子) * 1、穿著舒適吸震健走鞋</span>
+          </label>
         </div>
+      </div>
 
-        <!-- DAY 3 CONTENT -->
-        <div id="day-3-content" class="day-content space-y-4 hidden">
-            <!-- Summary Banner -->
-            <div class="bg-gradient-to-r from-fuzhou-50 to-orange-50 border border-fuzhou-100 rounded-2xl p-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-fuzhou-800 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-city text-fuzhou-600"></i> 第 3 天：市井煙火、古寺與福道步道
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-1">穿梭先鋒市場早市、煙台山、上下杭，中午於半崧茶室品茗歇腳，下午走訪西禪寺與空中福道。</p>
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 bg-fuzhou-100 text-fuzhou-800 rounded-full whitespace-nowrap">平緩步道 8,000 步</span>
-            </div>
-
-            <div class="space-y-3">
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">08:30 - 09:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">先鋒市場 (在地早市巡禮)</h4>
-                                <p class="text-xs text-slate-500 mt-1">感受福州市井熱氣，品嚐傳統糯嘰嘰糕點與新鮮海產。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">09:30 - 12:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">煙台山 $\rightarrow$ 解放大橋/中洲島 $\rightarrow$ 上下杭/古田會館</h4>
-                                <p class="text-xs text-slate-500 mt-1">搭車至煙台山漫步，隨後下山過解放大橋遠眺中洲島，走進上下杭歷史街區。</p>
-                                <button onclick="openModal('yantaishan')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">12:00 - 14:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">午餐休閒：【半崧茶室】(西禪店) 用餐品茗</h4>
-                                <p class="text-xs text-slate-500 mt-1">位於西禪古寺旁邊，提供中式雅緻簡餐與熱茶，環境極其舒適，讓爸媽好好休息足足 2 小時。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">14:00 - 15:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">參訪【西禪古寺】</h4>
-                                <p class="text-xs text-slate-500 mt-1">福州五大禪林之一，荔枝樹環繞，寺內地勢平坦，步調清幽。</p>
-                                <button onclick="openModal('xichan')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">16:00 - 18:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">福州空中森林步道【福道】(3號進 $\rightarrow$ 5號出)</h4>
-                                <p class="text-xs text-slate-500 mt-1">鋼架懸空棧道，全程下坡與平路，剛好欣賞傍晚日落與初夜點燈。</p>
-                                <button onclick="openModal('fudao')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">18:30 - 20:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">晚餐：【三生石】精緻閩菜私房菜</h4>
-                                <p class="text-xs text-slate-500 mt-1">環境幽雅，口味精緻，非常適合家庭溫馨聚餐。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200">
+        <h2 class="text-lg font-bold text-red-900 border-b border-amber-100 pb-3 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-wifi text-amber-600"></i> 行前確認事項
+        </h2>
+        <div class="p-4 bg-amber-50/60 rounded-xl border border-amber-200 text-sm space-y-2">
+          <p class="font-bold text-amber-900">📱 網路與通訊漫遊開通：</p>
+          <p class="text-slate-700">出發前請向電信業者申請「國際漫遊數據包」或準備免翻牆之中港澳 eSIM / 上網卡，確保抵達福州後通訊、導航與微信/支付寶行動支付流暢使用。</p>
         </div>
+      </div>
 
-        <!-- DAY 4 CONTENT -->
-        <div id="day-4-content" class="day-content space-y-4 hidden">
-            <!-- Summary Banner -->
-            <div class="bg-gradient-to-r from-fuzhou-50 to-orange-50 border border-fuzhou-100 rounded-2xl p-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-fuzhou-800 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-mountain text-fuzhou-600"></i> 第 4 天：鼓山湧泉寺、鼓嶺避暑山莊與閩江夜遊
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-1">搭纜車登鼓山湧泉寺，午後至鼓嶺高山避暑勝地喝茶，晚上享受浪漫閩江夜遊。</p>
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 bg-fuzhou-100 text-fuzhou-800 rounded-full whitespace-nowrap">纜車+景區車免爬山</span>
-            </div>
-
-            <div class="space-y-3">
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">09:00 - 12:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">鼓山風景區（湧泉寺 & 摩崖石刻）</h4>
-                                <p class="text-xs text-slate-500 mt-1">乘坐索道纜車或景區車上山，參觀閩剎之首「湧泉寺」與珍貴的石刻藝術。</p>
-                                <button onclick="openModal('gushan')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">12:00 - 16:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">鼓嶺旅遊度假區（萬國建築 / 柳杉王公園 / 山頂下午茶）</h4>
-                                <p class="text-xs text-slate-500 mt-1">搭乘景區接駁車 15 分鐘直達鼓嶺，品嚐高山農家菜，並在山頂景觀咖啡/茶館歇息。</p>
-                                <button onclick="openModal('guling')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="food">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-amber-600 bg-amber-50 text-xs px-2.5 py-1 rounded-lg h-fit">17:30 - 19:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">晚餐：台江碼頭附近享用在地美饌</h4>
-                                <p class="text-xs text-slate-500 mt-1">建議在登船前先享用晚餐（夜遊船上多僅提供水與茶點）。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">19:30 - 20:40</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">【閩江夜遊】(台江碼頭登船)</h4>
-                                <p class="text-xs text-slate-500 mt-1">乘坐舒適觀光船，航程約 70 分鐘，欣賞閩江兩岸燈光秀與橋樑夜景。</p>
-                                <button onclick="openModal('minjiang')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DAY 5 CONTENT -->
-        <div id="day-5-content" class="day-content space-y-4 hidden">
-            <!-- Summary Banner -->
-            <div class="bg-gradient-to-r from-fuzhou-50 to-orange-50 border border-fuzhou-100 rounded-2xl p-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-fuzhou-800 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-kaaba text-fuzhou-600"></i> 第 5 天：莆田湄洲島媽祖祖廟朝聖
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-1">包車前往文甲碼頭，渡輪登島參拜海上女神媽祖祖廟，晚上直奔機場亞朵飯店入住。</p>
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 bg-fuzhou-100 text-fuzhou-800 rounded-full whitespace-nowrap">全天包車方案 C</span>
-            </div>
-
-            <div class="space-y-3">
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">08:00 - 10:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">辦理退房，全天包車出發前往莆田文甲碼頭</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-suitcase text-slate-400 mr-1"></i>所有大件行李放包車後備箱（司機在碼頭等候），車程 2 小時。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">10:00 - 10:20</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">文甲碼頭搭乘渡輪 / 快艇前往湄洲島</h4>
-                                <p class="text-xs text-slate-500 mt-1">航程約 15~20 分鐘，海風清爽，船隻行駛相當平穩。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="spot">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">10:20 - 17:30</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">湄洲島巡禮：湄嶼媽祖祖廟 $\rightarrow$ 鵝尾神石園 $\rightarrow$ 蓮池澳沙灘</h4>
-                                <p class="text-xs text-slate-500 mt-1">島上租用電瓶包車接送，參拜世界媽祖信俗祖廟，欣賞海蝕奇觀。</p>
-                                <button onclick="openModal('meizhou')" class="mt-2 text-xs text-fuzhou-600 font-semibold flex items-center gap-1 hover:underline">
-                                    <i class="fa-solid fa-circle-info"></i> 開啟景點詳細介紹與 FB 影片連結
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">18:00 - 20:00</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">離島包車直達「福州長樂機場海港城亞朵飯店」</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-hotel text-slate-400 mr-1"></i>車程約 1.5 ~ 2 小時，抵達機場附近飯店辦理入住，省去次日趕飛機之苦。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DAY 6 CONTENT -->
-        <div id="day-6-content" class="day-content space-y-4 hidden">
-            <!-- Summary Banner -->
-            <div class="bg-gradient-to-r from-fuzhou-50 to-orange-50 border border-fuzhou-100 rounded-2xl p-4 flex justify-between items-center">
-                <div>
-                    <h3 class="font-bold text-fuzhou-800 text-lg flex items-center gap-2">
-                        <i class="fa-solid fa-plane-departure text-fuzhou-600"></i> 第 6 天：平安滿載，返抵家園
-                    </h3>
-                    <p class="text-xs text-slate-600 mt-1">從機場飯店輕鬆出發，搭乘班機返回台北松山機場。</p>
-                </div>
-                <span class="text-xs font-semibold px-2.5 py-1 bg-fuzhou-100 text-fuzhou-800 rounded-full whitespace-nowrap">飯店至機場 15 分鐘</span>
-            </div>
-
-            <div class="space-y-3">
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">08:15</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">飯店出發前往福州長樂機場 (FOC)</h4>
-                                <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-taxi text-slate-400 mr-1"></i>乘車僅 10-15 分鐘即可抵達航廈。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm" data-category="transport">
-                    <div class="flex items-start justify-between">
-                        <div class="flex gap-3">
-                            <span class="font-bold text-fuzhou-600 bg-fuzhou-50 text-xs px-2.5 py-1 rounded-lg h-fit">10:15 - 11:55</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">福州起飛 $\rightarrow$ 台北松山機場 (TSA)</h4>
-                                <p class="text-xs text-slate-500 mt-1">班機順利降落台北松山機場，結束圓滿溫馨的福州孝親之旅。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- PARENT CARE TIPS SECTION -->
-        <section class="mt-8 bg-amber-50/80 border border-amber-200 rounded-2xl p-5 shadow-sm">
-            <h3 class="text-base font-bold text-amber-900 flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-heart-pulse text-amber-600"></i> 長輩關懷與貼心提醒
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-amber-900/90">
-                <div class="bg-white/80 p-3 rounded-xl border border-amber-100">
-                    <span class="font-bold block text-amber-800 mb-1"><i class="fa-solid fa-shoe-prints mr-1"></i> 步道與地形</span>
-                    <p>福道選 3 號口進 5 號口出全程為輕鬆下坡；煙台山與古田廟宇有少許階梯，已備妥短程計程車與包車減輕負擔。</p>
-                </div>
-                <div class="bg-white/80 p-3 rounded-xl border border-amber-100">
-                    <span class="font-bold block text-amber-800 mb-1"><i class="fa-solid fa-temperature-arrow-up mr-1"></i> 11月初氣候</span>
-                    <p>福州 11 月初秋高氣爽（約 18-24°C），湄洲島與山區風大，請隨身攜帶薄風衣外套與防曬帽。</p>
-                </div>
-                <div class="bg-white/80 p-3 rounded-xl border border-amber-100">
-                    <span class="font-bold block text-amber-800 mb-1"><i class="fa-solid fa-toilet mr-1"></i> 洗手間與歇腳</span>
-                    <p>景區（三坊七巷、福道、湄洲島）均設有無障礙洗手間，中午皆安排 1.5 - 2 小時飯店或茶室充分休息。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- TRAVEL CHECKLIST -->
-        <section class="mt-4 bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm">
-            <h3 class="text-base font-bold text-slate-800 flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-clipboard-check text-fuzhou-600"></i> 孝親行前準備清單
-            </h3>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
-                    <input type="checkbox" checked class="rounded text-fuzhou-600 focus:ring-fuzhou-500">
-                    <span>台胞證 (有效期內)</span>
-                </label>
-                <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
-                    <input type="checkbox" checked class="rounded text-fuzhou-600 focus:ring-fuzhou-500">
-                    <span>微信支付/公車碼綁定</span>
-                </label>
-                <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
-                    <input type="checkbox" class="rounded text-fuzhou-600 focus:ring-fuzhou-500">
-                    <span>長輩常備藥品</span>
-                </label>
-                <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
-                    <input type="checkbox" class="rounded text-fuzhou-600 focus:ring-fuzhou-500">
-                    <span>保暖風衣外套</span>
-                </label>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- SPOT INFORMATION MODALS (Interactive Popups) -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden transition-opacity">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden border border-slate-100 max-h-[85vh] flex flex-col transform transition-all scale-95 opacity-0" id="modal-box">
-                
-                <!-- Modal Header -->
-                <div class="gradient-header text-white p-5 flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <i id="modal-icon" class="fa-solid fa-location-dot text-amber-300 text-lg"></i>
-                        <h3 id="modal-title" class="text-xl font-bold font-serif">景點介紹</h3>
-                    </div>
-                    <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-
-                <!-- Modal Body (Scrollable) -->
-                <div class="p-6 overflow-y-auto space-y-4 text-slate-700 text-sm" id="modal-body">
-                    <!-- Dynamic Content Injected Here -->
-                </div>
-
-                <!-- Modal Footer -->
-                <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
-                    <button onclick="closeModal()" class="px-5 py-2 bg-fuzhou-600 text-white font-medium rounded-xl text-xs hover:bg-fuzhou-800 transition-colors">
-                        我知道了 / 關閉
-                    </button>
-                </div>
-            </div>
-        </div>
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200">
+        <h2 class="text-lg font-bold text-red-900 border-b border-amber-100 pb-3 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-heart text-amber-600"></i> 行程貼心提示
+        </h2>
+        <ul class="space-y-3 text-sm text-slate-700">
+          <li class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-red-700 mt-1"></i>
+            <span><strong>步道鞋款：</strong> 每日景點涵蓋古道、花崗石步道與森林棧道，請務必穿著防滑休閒鞋。</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-red-700 mt-1"></i>
+            <span><strong>穿搭建議：</strong> 11 月初福州市區與鼓嶺、湄洲島山海溫差較大，建議採用洋蔥式穿法並備妥保暖外套。</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <i class="fa-solid fa-check text-red-700 mt-1"></i>
+            <span><strong>飲食口味：</strong> 本次精選特色閩菜與傳統小吃，口味鮮甜滑嫩，如有飲食調整需求可隨時提出。</span>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <script>
-        // Spot Data Dictionary
-        const spotDetails = {
-            sanfang: {
-                title: "三坊七巷 / 水榭戲台",
-                icon: "fa-torii-gate",
-                content: `
-                    <p class="leading-relaxed"><b>三坊七巷</b>是福州歷史文化名城的核心標誌，保存有大量的明清古建築，被誉為「明清建築博物館」與「半部中國近代史」。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-star text-amber-500 mr-1"></i>亮點特色：</p>
-                        <p>• <b>水榭戲台</b>：建於清代，戲台架設於水池之上，音響效果極佳，雕樑畫棟非常精美。</p>
-                        <p>• <b>名人故居</b>：包含林則徐、冰心、嚴復等近代名人故居。</p>
-                    </div>
-                    <p class="text-xs text-slate-500"><i class="fa-solid fa-person-walking-line-red mr-1"></i><b>孝親提醒：</b>主街青石板路極為平坦好走，兩側設有許多座椅，隨時可以歇腳吃花生湯。</p>
-                `
-            },
-            linshui: {
-                title: "古田臨水宮 (陳靖姑祖廟)",
-                icon: "fa-place-of-worship",
-                content: `
-                    <p class="leading-relaxed"><b>古田臨水宮</b>是全球順天聖母（陳靖姑）的祖廟，始建於唐代，國家級重點文物保護單位。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-star text-amber-500 mr-1"></i>朝聖指南：</p>
-                        <p>• 主祀「臨水夫人」陳靖姑，為婦幼保護神、平安神。</p>
-                        <p>• 宮殿建築氣勢恢宏，擁有精美的清代木雕戲台與壁畫。</p>
-                    </div>
-                    <p class="text-xs text-slate-500"><i class="fa-solid fa-hands-praying mr-1"></i><b>參拜提醒：</b>廟宇前方有些許台階，包車可直接開至廣場附近，減少長輩步行負擔。</p>
-                `
-            },
-            cuiping: {
-                title: "古田翠屏湖",
-                icon: "fa-water",
-                content: `
-                    <p class="leading-relaxed">福建省最大的人工淡水湖，湖面寬廣，水質清澈，四周群山環抱，有「福建千島湖」之美譽。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-utensils text-amber-500 mr-1"></i>必吃美食：</p>
-                        <p>• 翠屏湖有機砂鍋大頭魚（魚湯濃郁鮮美）。</p>
-                    </div>
-                `
-            },
-            yantaishan: {
-                title: "煙台山 / 解放大橋 / 上下杭",
-                icon: "fa-city",
-                content: `
-                    <p class="leading-relaxed">福州文藝與歷史商埠的精華串聯路線。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1"></i>動線規劃：</p>
-                        <p>1. <b>煙台山</b>：萬國建築群，文藝小店林立。</p>
-                        <p>2. <b>解放大橋 & 中洲島</b>：過橋可遠眺中洲島歐式城堡建築。</p>
-                        <p>3. <b>上下杭 & 古田會館</b>：福州昔日的「雙杭」商業繁華之地，古色古香。</p>
-                    </div>
-                `
-            },
-            xichan: {
-                title: "西禪古寺",
-                icon: "fa-gopuram",
-                content: `
-                    <p class="leading-relaxed">福州五大禪林之一，建於唐代。寺內荔枝樹成蔭，環境極為幽靜祥和。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-spa text-amber-500 mr-1"></i>特色亮點：</p>
-                        <p>• 擁有高聳的報恩塔與放生池，地勢極為平坦，非常適合長輩慢步參觀。</p>
-                        <p>• 緊鄰【半崧茶室】，參觀前後可順道品茗。</p>
-                    </div>
-                `
-            },
-            fudao: {
-                title: "福州空中森林步道【福道】",
-                icon: "fa-tree",
-                content: `
-                    <p class="leading-relaxed">獲獎無數的鋼架懸空步道，穿梭於森林樹冠之間，鳥瞰福州市區景致。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-route text-amber-500 mr-1"></i>省力秘訣：</p>
-                        <p>• <b>3號口進 $\rightarrow$ 5號口出</b>：全程約 3 公里，幾乎全為平緩下坡與平路，絕不傷膝蓋！</p>
-                        <p>• 傍晚 17:00 前後進入，可兼賞夕陽與晚間點燈。</p>
-                    </div>
-                `
-            },
-            gushan: {
-                title: "鼓山湧泉寺 & 摩崖石刻",
-                icon: "fa-mountain",
-                content: `
-                    <p class="leading-relaxed">福州最著名的名山，閩剎之首「湧泉寺」建於山腰，藏有大量珍貴宋代以來之摩崖石刻。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-cable-car text-amber-500 mr-1"></i>孝親亮點：</p>
-                        <p>• 可乘索道纜車直達山頂，視野開闊無須爬山。</p>
-                    </div>
-                `
-            },
-            guling: {
-                title: "鼓嶺旅遊度假區",
-                icon: "fa-cloud-sun",
-                content: `
-                    <p class="leading-relaxed">近代外國人在福州的避暑勝地，留存有許多百年萬國別墅建築群與柳杉王公園。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-mug-hot text-amber-500 mr-1"></i>推薦體驗：</p>
-                        <p>• 山頂空氣清新，選一家景觀茶室與爸媽享受下午茶。</p>
-                    </div>
-                `
-            },
-            minjiang: {
-                title: "閩江夜遊",
-                icon: "fa-ship",
-                content: `
-                    <p class="leading-relaxed">搭乘觀光豪華遊船，沿閩江欣賞兩岸燈光秀、海峽金融商務區與古橋夜景。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-clock text-amber-500 mr-1"></i>貼心提醒：</p>
-                        <p>• 船程約 70 分鐘，江面風大，建議為爸媽準備薄外套。</p>
-                    </div>
-                `
-            },
-            meizhou: {
-                title: "湄洲媽祖祖廟 & 鵝尾神石園",
-                icon: "fa-kaaba",
-                content: `
-                    <p class="leading-relaxed"><b>湄洲島</b>是世界媽祖文化的發祥地，聯合國教科文組織人類非物質文化遺產。</p>
-                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-100 text-xs space-y-1">
-                        <p class="font-bold text-amber-900"><i class="fa-solid fa-star text-amber-500 mr-1"></i>朝聖與景點：</p>
-                        <p>• <b>湄洲媽祖祖廟</b>：全球千萬媽祖信徒之精神聖地。</p>
-                        <p>• <b>鵝尾神石園</b>：獨特的海蝕地質公園。</p>
-                    </div>
-                    <div class="mt-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
-                        <a href="https://www.facebook.com/share/r/1dWFPtRTyT/" target="_blank" class="text-blue-600 font-bold text-xs flex items-center gap-1 hover:underline">
-                            <i class="fa-brands fa-facebook text-blue-600 text-sm"></i> 點此觀看媽祖參拜參考短影片 (FB)
-                        </a>
-                    </div>
-                `
-            }
-        };
+    <!-- DAY 1 TAB -->
+    <div id="content-day1" class="tab-content hidden space-y-4">
+      <div class="bg-red-800 text-white rounded-2xl p-4 shadow-sm border border-amber-500/30 flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-amber-100">10/30 (星期五) Day 1 啟程 · 抵達福州與古街巡禮</h2>
+          <p class="text-xs text-amber-200/80 mt-0.5">桃園啟航 ➔ 抵達福州 ➔ 入住東街口 ➔ 在地小吃 ➔ 三坊七巷文藝漫步</p>
+        </div>
+      </div>
 
-        // Switch Active Day Tab
-        function switchDay(dayNumber) {
-            document.querySelectorAll('.day-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.day-tab').forEach(el => {
-                el.classList.remove('active-tab');
-                el.classList.add('bg-white', 'text-slate-700');
-            });
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-car mr-1"></i>專車接送</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">機場接駁 (台中出發)</h3>
+        <p class="text-xs text-slate-600 mt-1">專車由台中出發前往桃園國際機場第二航廈準備辦理登機。</p>
+      </div>
 
-            document.getElementById(`day-${dayNumber}-content`).classList.remove('hidden');
-            const activeTab = document.getElementById(`tab-${dayNumber}`);
-            activeTab.classList.add('active-tab');
-            activeTab.classList.remove('bg-white', 'text-slate-700');
-        }
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">11:25 ➔ 13:10</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-plane mr-1"></i>廈門航空 MF880</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">桃園機場起飛 ➔ 福州長樂機場降落</h3>
+        <p class="text-xs text-slate-600 mt-1">搭乘班機順利抵達福州長樂國際機場，辦理入境通關與提領行李。</p>
+      </div>
 
-        // Modal Functionality
-        function openModal(spotKey) {
-            const data = spotDetails[spotKey];
-            if (!data) return;
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">14:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-hotel mr-1"></i>飯店 Check-in</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">專車前往市區飯店 Check-in</h3>
+        <p class="text-xs text-slate-600 mt-1">入住「福州三坊七巷東街口地鐵站亞朵飯店」，安頓行李稍作休息。</p>
+      </div>
 
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-icon').className = `fa-solid ${data.icon} text-amber-300 text-lg`;
-            document.getElementById('modal-body').innerHTML = data.content;
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">15:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>在地美食</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">東街口與三坊七巷在地小吃巡禮</h3>
+        <p class="text-xs text-slate-600 mt-1">漫步東街口名店商圈，品嚐正宗福州傳統非遺美食。</p>
+        <div class="mt-3 space-y-2">
+          <div class="border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+            <button onclick="toggleAccordion('snack1')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+              <span>🥣 同利肉燕 / 葉家花生湯</span>
+              <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+            </button>
+            <div id="snack1" class="accordion-content text-xs text-slate-700 mt-2 space-y-1">
+              <p><strong>同利肉燕：</strong> 福州百年非遺老字號，首創「肉包肉」打燕皮工藝，將豬後腿肉捶打成薄如紙張的燕皮，口感 Q 彈鮮美。</p>
+              <p><strong>葉家花生湯：</strong> 三坊七巷傳統古法甜品，花生熬煮至綿密即化，甜而不膩。</p>
+            </div>
+          </div>
+          <div class="border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+            <button onclick="toggleAccordion('snack2')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+              <span>🥤 糖沫茶兮 / 到山家伴手禮</span>
+              <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+            </button>
+            <div id="snack2" class="accordion-content text-xs text-slate-700 mt-2 space-y-1">
+              <p><strong>糖沫茶兮：</strong> 在地人極力推薦的新中式茉莉花茶飲，香氣優雅順口。</p>
+              <p><strong>到山家：</strong> 特色中式糕點伴手禮店家，適合選購精緻茶點。</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-            const backdrop = document.getElementById('modal-backdrop');
-            const box = document.getElementById('modal-box');
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">15:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-landmark mr-1"></i>歷史古街</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">三坊七巷 / 名人故居 / 水榭戲台</h3>
+        <p class="text-xs text-slate-600 mt-1">漫步福州歷史文化名街，體驗「明清建築博物館」古樸氛圍，並選購隔天朝聖拜拜的水果鮮花。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_sfqx')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【三坊七巷與水榭戲台】景點詳細介紹</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_sfqx" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>三坊七巷深度介紹：</strong> 三坊七巷地處福州市中心，占地約 40 公頃，是福州歷史上最具代表性的傳統街區。其格局自晉代起步、唐宋基本成型，至明清達到鼎盛，被建築學界譽為「中國城市里坊制度的活化石」與「明清建築博物館」。街區內白牆瓦黛、馬頭牆錯落，保存了數百座古民居與百餘處古建築。</p>
+            <p>歷史上這裡人文薈萃、人才輩出，孕育了林則徐、沈葆楨、嚴復、林覺民、冰心等數十位對中國近代史產生深遠影響的傑出人物，享有「一片三坊七巷，半部中國近代史」的美譽，漫步其間不僅能欣賞典雅精緻的閩派建築藝術，更能深刻感受到深厚的歷史文化底蘊與文人雅士的足跡。</p>
+            <p><strong>水榭戲台特色：</strong> 坐落於衣錦坊內，是福州現存唯一一處水上戲台。戲台背靠水池，採用精巧的木構建築，利用水面的自然共鳴與反射原理，使臺上絲竹管弦與唱腔無需擴音設備便能清脆悅耳、迴盪全場。整個戲台雕梁畫棟、工藝繁複，完美展現了清代閩都富商與士紳階層極致講究的休閒生活與美學品味。</p>
+          </div>
+        </div>
+      </div>
 
-            backdrop.classList.remove('hidden');
-            setTimeout(() => {
-                backdrop.classList.add('opacity-100');
-                box.classList.remove('scale-95', 'opacity-0');
-                box.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">18:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-bowl-food mr-1"></i>閩味晚餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">晚餐：精選閩味晚餐 (三選一)</h3>
+        <div class="mt-2 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('dinner1')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>🍲 朱富貴火鍋 / 寄海火鍋 / 四道菜福建菜館</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="dinner1" class="accordion-content text-xs text-slate-700 mt-2 space-y-1">
+            <p><strong>朱富貴/寄海海鮮火鍋：</strong> 在地海鮮現點現切，湯頭鮮美高雅。</p>
+            <p><strong>四道菜福建菜：</strong> 經典精緻閩菜，代表作包含古法荔枝肉、紅膏蟹飯與綿密芋泥。</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        function closeModal() {
-            const backdrop = document.getElementById('modal-backdrop');
-            const box = document.getElementById('modal-box');
+    <!-- DAY 2 TAB -->
+    <div id="content-day2" class="tab-content hidden space-y-4">
+      <div class="bg-red-800 text-white rounded-2xl p-4 shadow-sm border border-amber-500/30 flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-amber-100">10/31 (星期六) Day 2 古田朝聖 · 臨水宮與翠屏湖</h2>
+          <p class="text-xs text-amber-200/80 mt-0.5">包車赴古田 ➔ 參訪臨水宮祖廟 ➔ 翠屏湖風景區</p>
+        </div>
+      </div>
 
-            box.classList.remove('scale-100', 'opacity-100');
-            box.classList.add('scale-95', 'opacity-0');
-            backdrop.classList.remove('opacity-100');
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-amber-500 text-red-950 text-xs font-bold px-3 py-1 rounded-full">07:00 ➔ 08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>晨間用餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">早餐：飯店用餐</h3>
+        <p class="text-xs text-slate-600 mt-1">於東街口亞朵飯店享用豐盛的自助式中西合璧早餐，儲存活力準備出發。</p>
+      </div>
 
-            setTimeout(() => {
-                backdrop.classList.add('hidden');
-            }, 200);
-        }
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-van-shuttle mr-1"></i>專車包車</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">包車從飯店出發前往古田</h3>
+        <p class="text-xs text-slate-600 mt-1">高級商務包車專車接送，行車約 2 小時，沿途欣賞閩東北山嶺景色。</p>
+      </div>
 
-        // Search and Filter Functions
-        function filterItems() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const items = document.querySelectorAll('.timeline-item');
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">10:00 ➔ 12:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-place-of-worship mr-1"></i>朝聖參拜</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">參訪【古田臨水宮】（陳靖姑祖廟）</h3>
+        <p class="text-xs text-slate-600 mt-1">朝聖順天聖母陳靖姑祖廟，參觀飛簷峭壁之古建築群與香火盛況。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_lsg')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【古田臨水宮】歷史背景與典故</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_lsg" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>古田臨水宮深度介紹：</strong> 坐落於寧德市古田縣大橋鎮崍山村，始建於唐貞元八年（公元792年），距今已有1200多年歷史，是全球數千座臨水宮、順天聖母廟的祖廟與發祥地。宮內主奉被尊為「婦幼保護神」與「陸上媽祖」的順天聖母陳靖姑，其信仰廣泛流傳於海峽兩岸及東南亞地區，具有極高的宗教與文化影響力。</p>
+            <p><strong>建築與藝術價值：</strong> 臨水宮依山而建，層臺疊榭、氣勢恢弘。主殿結構嚴謹，飛簷翹角上雕刻著精緻的瑞獸與花鳥，殿內保留了大量清代及民國時期的古木雕、石柱與彩繪。整體建築完美融合了閩東民間傳統營造技藝，古樸莊嚴中透著典雅，香火歷經千年而不衰，是尋根朝聖的重要文化殿堂。</p>
+          </div>
+        </div>
+      </div>
 
-            items.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">12:30 ➔ 14:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>農家午餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">午餐：當地風味午餐</h3>
+        <p class="text-xs text-slate-600 mt-1">品嚐古田在地農家特色料理與養生食用菌、銀耳羹。</p>
+      </div>
 
-        function setFilter(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('bg-fuzhou-600', 'text-white');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
-            });
-            event.currentTarget.classList.add('bg-fuzhou-600', 'text-white');
-            event.currentTarget.classList.remove('bg-slate-100', 'text-slate-600');
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">14:00 ➔ 15:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-water mr-1"></i>湖光山色</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">翠屏湖景觀遊覽</h3>
+        <p class="text-xs text-slate-600 mt-1">漫步水上親水棧道，欣賞福建最大人工湖泊之湖光山色。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_cph')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【翠屏湖】景觀特色</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_cph" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>翠屏湖深度介紹：</strong> 翠屏湖位於古田縣城東郊，因湖水四周群山環抱、翠綠如屏而得名，是古田溪水庫攔截蓄水形成的高山人工湖。湖面開闊清澈，總面積達 37 平方公里，水質優良，湖中散落著大大小數十個翠綠島嶼，宛如翡翠鑲嵌在群山之中。</p>
+            <p>這裡空氣清新、氣候宜人，湖畔建有完善的休閒步道與觀景平台。遊客在此可遠眺青山如黛、近賞碧波萬頃，既能感受高山平湖的浩瀚大氣，又能享受寧靜悠閒的慢活步調，是放鬆身心、親近自然的絕佳景點。</p>
+          </div>
+        </div>
+      </div>
 
-            const items = document.querySelectorAll('.timeline-item');
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-        }
-    </script>
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">15:00 ➔ 17:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-car mr-1"></i>包車返程</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">包車返回福州市區飯店</h3>
+        <p class="text-xs text-slate-600 mt-1">原車返回福州東街口亞朵飯店，休憩安頓。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">18:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-bowl-food mr-1"></i>精緻桌菜</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">晚餐：精選閩味晚餐</h3>
+        <p class="text-xs text-slate-600 mt-1">享用四道菜福建菜館精緻桌菜佳餚。</p>
+      </div>
+    </div>
+
+    <!-- DAY 3 TAB -->
+    <div id="content-day3" class="tab-content hidden space-y-4">
+      <div class="bg-red-800 text-white rounded-2xl p-4 shadow-sm border border-amber-500/30 flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-amber-100">11/01 (星期日) Day 3 市井風情 · 西禪寺與森林福道</h2>
+          <p class="text-xs text-amber-200/80 mt-0.5">先鋒早市 ➔ 煙台山 ➔ 解放大橋中洲島 ➔ 西禪古寺 ➔ 空中福道</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-amber-500 text-red-950 text-xs font-bold px-3 py-1 rounded-full">07:00 ➔ 08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>晨間用餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">早餐：飯店用餐</h3>
+        <p class="text-xs text-slate-600 mt-1">於東街口亞朵飯店享用豐盛的自助式早餐。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">08:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-store mr-1"></i>市井早市</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">先鋒市場 (在地熱鬧早市)</h3>
+        <p class="text-xs text-slate-600 mt-1">體驗福州老街坊生活氣息與新鮮市井民情。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">09:30 ➔ 12:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-city mr-1"></i>萬國建築</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">煙台山 ➔ 解放大橋 / 中洲島 ➔ 上下杭 / 古田會館</h3>
+        <p class="text-xs text-slate-600 mt-1">漫步萬國建築群，跨越解放大橋欣賞中洲島歐式建築與上下杭水鄉古街。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_yts')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【煙台山與上下杭】歷史介紹</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_yts" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>煙台山深度介紹：</strong> 位於福州市倉山區，南臨閩江，曾是近代福州五口通商時期的領事館、洋行與教堂集中地。區內保留了超過百棟風格各異的近現代西洋歷史建築，涵蓋英法美等國領事館、哥德式教堂及洋房別墅，享有「萬國建築博物館」的美譽，漫步其間充滿濃厚的異國情調與文藝氣息。</p>
+            <p><strong>上下杭歷史街區：</strong> 位於閩江北岸，是福州早期的商業中心與航運樞紐，俗稱「雙杭」。這裡保存了大量明清時期的古街巷、傳統商行與宗祠會館（如古田會館）。青石板路、白牆黛瓦與深宅大院交織出獨特的水鄉商貿風貌，見證了閩商輝煌的歷史發展與繁華市井記憶。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">12:30 ➔ 14:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-mug-hot mr-1"></i>禪意品茗</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">午餐休息：半崧茶室</h3>
+        <p class="text-xs text-slate-600 mt-1">於西禪寺旁半崧茶室享用禪意品茗午膳，環境安靜優雅。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">14:00 ➔ 15:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-vihara mr-1"></i>千年古剎</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">參訪【西禪古寺】</h3>
+        <p class="text-xs text-slate-600 mt-1">參觀福州五大禪林之一，荔枝紅牆與報恩塔極具古剎韻味。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_xcs')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【西禪古寺】歷史背景</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_xcs" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>西禪古寺深度介紹：</strong> 坐落於福州市西郊怡山之麓，始建於唐咸通八年（公元867年），為福州著名的五大禪林之一。寺內古木參天、綠蔭匝地，環境清幽雅致。最著名的景點為高達 67 米、宏偉壯觀的報恩塔，以及寺內歷經滄桑的古荔枝樹與莊嚴典雅的大雄寶殿。</p>
+            <p>漫步於寺中經典的朱紅院牆與青石幽徑之間，古意盎然、鐘聲悠揚，能讓人瞬間拋開塵囂，體驗純粹清靜的佛教禪意與深厚的人文歷史沉澱。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">16:00 ➔ 17:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-person-walking mr-1"></i>森林步道</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">福州空中森林步道【福道】(3號進、5號出)</h3>
+        <p class="text-xs text-slate-600 mt-1">體驗平緩無障礙鋼架懸空步道，輕鬆穿梭林梢俯瞰福州市區景致。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_fd')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【福州福道】建築與設計亮點</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_fd" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>福州福道深度介紹：</strong> 福州左海公園—金牛山城市森林步道（簡稱福道）是中國首條採用鋼架懸空設計的城市森林步道，總全長達 19 公里。步道主軸線設計採用坡度小於 1:16 的無障礙坡道，讓各年齡層的遊客皆能毫不費力地漫步林間。</p>
+            <p>其獨特的鏤空鋼網架結構不僅透光通風、對自然生態干擾極低，更串聯了多處山水公園與觀景平台。沿途綠意盎然、視野開闊，登上高處更可俯瞰福州城市風貌與閩江風光，曾榮獲國際建築大獎，是兼具環保與休閒美學的城市綠色地標。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">18:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>特色晚餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">晚餐：三生石菜館</h3>
+        <p class="text-xs text-slate-600 mt-1">享用精緻文藝風格閩菜佳餚。</p>
+      </div>
+    </div>
+
+    <!-- DAY 4 TAB -->
+    <div id="content-day4" class="tab-content hidden space-y-4">
+      <div class="bg-red-800 text-white rounded-2xl p-4 shadow-sm border border-amber-500/30 flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-amber-100">11/02 (星期一) Day 4 名山避暑 · 鼓山鼓嶺與閩江夜景</h2>
+          <p class="text-xs text-amber-200/80 mt-0.5">鼓山纜車 ➔ 湧泉寺 ➔ 鼓嶺度假區 ➔ 閩江璀璨夜遊</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-amber-500 text-red-950 text-xs font-bold px-3 py-1 rounded-full">07:00 ➔ 08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>晨間用餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">早餐：飯店用餐</h3>
+        <p class="text-xs text-slate-600 mt-1">於東街口亞朵飯店享用豐盛早餐。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">09:00 ➔ 12:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-cable-car mr-1"></i>雙程纜車</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">鼓山風景區（乘坐雙程索道纜車 / 湧泉寺 & 摩崖石刻）</h3>
+        <p class="text-xs text-slate-600 mt-1">乘坐雙程空中纜車輕鬆上下山，參訪千年古剎湧泉寺與歷史摩崖石刻。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_yqs')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【鼓山湧泉寺與摩崖石刻】介紹</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_yqs" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>鼓山湧泉寺與摩崖石刻深度介紹：</strong> 鼓山位於福州市東郊，為福建省著名的風景名勝區。其中「湧泉寺」坐落於鼓山腰間，始建於後梁開平二年（公元908年），享有「閩剎之冠」的美譽。其建築布局巧奪天工，擁有「進山不見寺，進寺不見山」的獨特巧思，殿宇輝煌、古木參天，香火極其鼎盛。</p>
+            <p>而在通往湧泉寺的靈源洞一帶，沿途峭壁立千仞，保存了自宋代至近代歷代名家摩崖石刻多達 600 多處，書法風格兼備楷、行、草、隸，被學界譽為天然的「福州碑林」，極具歷史藝術價值。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">13:30 ➔ 16:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-tree mr-1"></i>高山避暑</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">鼓嶺旅遊度假區（萬國建築 / 柳杉王公園 / 山頂茶歇）</h3>
+        <p class="text-xs text-slate-600 mt-1">轉乘景區車至鼓嶺避暑勝地，參觀異國別墅與千年柳杉，享受山頂午後茶歇。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_gl')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【鼓嶺避暑度假區】歷史故事</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_gl" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>鼓嶺度假區深度介紹：</strong> 鼓嶺位於福州晉安區鼓山之北，平均海拔 800 多米，氣候涼爽宜人，自 19 世紀末期起便被外國傳教士與商人開發為著名的避暑勝地，與江西廬山、浙江莫干山、河南雞公山並稱為「中國四大避暑勝地」。</p>
+            <p>山區內至今仍完好保存了大量百年前的石柱別墅、教堂、網球場及避暑山莊，充滿異國風情。此外，區內的「柳杉王公園」矗立著樹齡超千年的參天古木。漫步其間不僅能呼吸沁涼清新的高山芬多精，更能感受濃厚的中西文化交融歷史。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">19:30 ➔ 20:40</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-ship mr-1"></i>璀璨夜遊</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">【閩江夜遊】(台江碼頭登船)</h3>
+        <p class="text-xs text-slate-600 mt-1">登船遊覽閩江夜景，兩岸燈光秀璀璨奪目，感受榕城夜色美景。</p>
+      </div>
+    </div>
+
+    <!-- DAY 5 TAB -->
+    <div id="content-day5" class="tab-content hidden space-y-4">
+      <div class="bg-red-800 text-white rounded-2xl p-4 shadow-sm border border-amber-500/30 flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-amber-100">11/03 (星期二) Day 5 海上聖地 · 湄洲媽祖祖廟朝聖</h2>
+          <p class="text-xs text-amber-200/80 mt-0.5">專車赴莆田 ➔ 渡輪登湄洲島 ➔ 媽祖祖廟參拜 ➔ 入住機場飯店</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-amber-500 text-red-950 text-xs font-bold px-3 py-1 rounded-full">07:00 ➔ 08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>晨間用餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">早餐：飯店用餐</h3>
+        <p class="text-xs text-slate-600 mt-1">於東街口亞朵飯店享用豐盛早餐。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">08:00 ➔ 10:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-car mr-1"></i>包車出發</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">包車由福州出發前往莆田文甲碼頭</h3>
+        <p class="text-xs text-slate-600 mt-1">行李直上包車後備箱，行車約 2 小時。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">10:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-ferry mr-1"></i>渡輪接駁</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">文甲碼頭搭乘渡輪前往湄洲島</h3>
+        <p class="text-xs text-slate-600 mt-1">搭乘渡輪約 15 分鐘平穩抵達湄洲島碼頭。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">10:30 ➔ 17:30</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-torii-gate mr-1"></i>媽祖祖廟朝聖</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">湄洲島朝聖：湄嶼媽祖祖廟 ➔ 鵝尾神石園 ➔ 蓮池澳沙灘</h3>
+        <p class="text-xs text-slate-600 mt-1">參拜全球媽祖祖廟，瞻仰巨型媽祖石雕像，島內租用包車觀光舒適便利。</p>
+        <div class="mt-3 border border-amber-200 rounded-lg p-3 bg-amber-50/50">
+          <button onclick="toggleAccordion('info_mzd')" class="font-bold text-xs text-red-900 w-full text-left flex justify-between items-center">
+            <span>📖 查看【湄洲島媽祖祖廟】文化介紹</span>
+            <i class="fa-solid fa-chevron-down text-amber-700 text-xs"></i>
+          </button>
+          <div id="info_mzd" class="accordion-content text-xs text-slate-700 mt-2 space-y-2 leading-relaxed">
+            <p><strong>湄洲島媽祖祖廟深度介紹：</strong> 坐落於福建省莆田市湄洲島，創建於宋雍熙四年（公元987年），是全世界三千多座媽祖廟的根源與祖廟。媽祖信仰歷經千年，凝聚了崇德、感恩、大愛的精神，其「媽祖信俗」更於 2009 年正式被聯合國教科文組織列入人類非物質文化遺產代表作名錄。</p>
+            <p>祖廟建築群依山面海、錯落有致，氣勢雄偉。殿宇內雕梁畫棟、金碧輝煌，常年香火鼎盛、朝聖者絡繹不絕。島上的巨型媽祖石雕像面朝大海，慈悲庇佑著萬千航海與海峽兩岸人民，是極具靈氣與歷史重量的至高朝聖聖地。</p>
+            <a href="https://www.facebook.com/share/r/1dWFPtRTyT/" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-red-700 font-bold hover:underline">
+              <i class="fa-brands fa-facebook mr-1 text-amber-600"></i>點擊觀看湄洲媽祖參拜影片分享 ➔
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">18:00 ➔ 20:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-hotel mr-1"></i>機場飯店</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">專車直達「福州長樂機場海港城亞朵飯店」</h3>
+        <p class="text-xs text-slate-600 mt-1">抵達機場附近飯店辦理入住，免去隔天清晨趕路壓力。</p>
+      </div>
+    </div>
+
+    <!-- DAY 6 TAB -->
+    <div id="content-day6" class="tab-content hidden space-y-4">
+      <div class="bg-red-800 text-white rounded-2xl p-4 shadow-sm border border-amber-500/30 flex justify-between items-center mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-amber-100">11/04 (星期三) Day 6 圓滿賦歸 · 返回台北松山</h2>
+          <p class="text-xs text-amber-200/80 mt-0.5">飯店出發 ➔ 長樂機場登機 ➔ 抵達松山機場</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-amber-500 text-red-950 text-xs font-bold px-3 py-1 rounded-full">07:00 ➔ 08:00</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-utensils mr-1"></i>晨間用餐</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">早餐：飯店用餐</h3>
+        <p class="text-xs text-slate-600 mt-1">於機場亞朵飯店享用悠閒早餐。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">08:15</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-taxi mr-1"></i>機場接駁</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">飯店接駁 / 叫車前往福州長樂機場</h3>
+        <p class="text-xs text-slate-600 mt-1">車程約 10-15 分鐘，時間充裕不慌張。</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-amber-200 hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-2 mb-3">
+          <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">10:15 ➔ 11:55</span>
+          <span class="text-xs text-amber-700 font-medium"><i class="fa-solid fa-plane-arrival mr-1"></i>返抵國門</span>
+        </div>
+        <h3 class="font-bold text-slate-900 text-base">福州機場起飛 (FOC) ➔ 台北松山機場降落 (TSA)</h3>
+        <p class="text-xs text-slate-600 mt-1">平安抵達台北松山機場，圓滿結束 6 天 5 夜朝聖之旅。</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('nav button').forEach(el => {
+        el.classList.remove('active-tab');
+        el.classList.add('bg-white', 'text-slate-700');
+      });
+
+      document.getElementById('content-' + tabId).classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-' + tabId);
+      activeBtn.classList.add('active-tab');
+      activeBtn.classList.remove('bg-white', 'text-slate-700');
+    }
+
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      content.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
